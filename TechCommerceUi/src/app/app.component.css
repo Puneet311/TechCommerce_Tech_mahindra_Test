@@ -1,0 +1,11 @@
+.widthMain{
+    height: 90vh !important;
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+    left: 0%;
+}
+.aling{
+    align-items: center;
+}

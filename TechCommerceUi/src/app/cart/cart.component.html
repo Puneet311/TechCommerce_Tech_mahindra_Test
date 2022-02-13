@@ -1,0 +1,56 @@
+<h1 class="mt-4 underline">Your Shopping Cart</h1>
+<div class="row col-md-12">
+  <ng-container *ngIf="productArray.length">
+    <div class="col-md-4 mt-2 mb-4" *ngFor="let product of productArray">
+      <mat-card class="mat-elevation-z8">
+          <mat-card-header class="spaceing1">
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <mat-card-title>{{product?.name}}</mat-card-title>
+            <mat-icon class="font1" (click)="removeProduct(product?._id)">highlight_off</mat-icon>
+          </mat-card-header>
+          <img mat-card-image [src]="product?.imageLink" alt="Photo product" width="300px" height="300px">
+          <mat-card-content class="spaceing">
+              <p class="font">
+               {{product?.price|  currency : 'INR'}}
+              </p>
+              <div>
+                <h3 class="font">Type: {{product?.quantity}}</h3>
+              </div>
+            </mat-card-content>
+          <mat-card-actions class="spaceing">
+            <div *ngIf="product?.quantity === 'Subscription'">
+                <mat-form-field>
+                  <mat-label>End date</mat-label>
+                  <input matInput type="date" [(ngModel)]="endDate">
+                </mat-form-field>  
+              </div>
+              <div *ngIf="product?.quantity === 'Delivery'">
+                  <mat-form-field>
+                    <mat-label>Delivery Address</mat-label>
+                    <input matInput type="text" [(ngModel)]="address">
+                  </mat-form-field>  
+                </div>
+                <div *ngIf="product?.quantity === 'Downloadable'"> 
+                </div>
+              <button mat-raised-button color="primary"
+               (click)="download(product?.quantity,product?.name)"
+               [disabled]="(product?.quantity === 'Subscription' && !endDate) || (product?.quantity === 'Delivery' && !address)"
+               >
+                <span class="font">Buy Now  </span>&nbsp;<mat-icon matTooltip='Add to shopping cart'>shop</mat-icon>
+          </button>
+          </mat-card-actions>
+      </mat-card>
+  </div>
+  </ng-container>
+  <ng-container *ngIf="!productArray.length">
+    <div class="col-md-6 text-center mt-4 centerMe">
+    <h1 class="mt-4">
+      Your cart is empty!. Go and add some product.
+    </h1>
+    <button routerLink="/all-product" mat-raised-button color="primary">
+      All products
+    </button>
+  </div>
+  </ng-container>
+   
+</div>

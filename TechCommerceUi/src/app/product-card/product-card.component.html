@@ -1,0 +1,29 @@
+<mat-card class="mat-elevation-z8" *ngIf="product">
+    <mat-card-header>
+      <!-- <div mat-card-avatar class="example-header-image"></div> -->
+      <mat-card-title>{{product?.name}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="imageLink" alt="Photo of a Shiba Inu" width="300px" height="300px">
+    <mat-card-content>
+        <p class="font">
+         Price : {{product?.price|  currency : 'INR'}}
+        </p>
+      </mat-card-content>
+    <mat-card-actions class="spaceing">
+        <mat-form-field>
+            <mat-label>Product Type</mat-label>
+            <mat-select name="type" [(ngModel)]="quantity">
+              <mat-option *ngFor="let type of quantities" [value]="type.value">
+                {{type.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        <button mat-mini-fab color="primary">
+            <mat-icon matTooltip='Add to shopping cart' (click)="addToCart()">add_shopping_cart</mat-icon>
+        </button>
+        <button mat-mini-fab color="warn">
+            <mat-icon matTooltip='Edit Product' (click)="openDialog()">edit</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>
+<h1 class="mt-4" *ngIf="!product">No product found</h1>

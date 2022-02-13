@@ -1,0 +1,28 @@
+<ng-container *ngIf="type === 'edit'">
+  <h1 mat-dialog-title>Edit Product Information</h1>
+  <div mat-dialog-content class="mt-4">
+      <mat-form-field class="example-full-width mt-2 mb-2" appearance="fill">
+          <mat-label>Price</mat-label>
+          <input type="number" [(ngModel)]="price" matInput placeholder="Enter Price of product">
+        </mat-form-field>
+        <mat-form-field class="example-full-width mt-2 mb-2" appearance="fill">
+          <mat-label>Image Link</mat-label>
+          <input type="text" [(ngModel)]="imageLink" matInput placeholder="Enter Image Link">
+        </mat-form-field>
+        <div class="buttons mt-2 mb-2">
+          <button mat-raised-button color="primary" class="m-2" (click)="editInfo()">Edit Info</button>
+          <button mat-raised-button color="accent" class="m-2" (click)="resetInfo()">Reset</button>
+        </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="type === 'show'">
+  <h1 mat-dialog-title class="text-center text-bold">{{name}}</h1>
+  <div *ngIf="date" class="text-center">
+    <h2>Products Expiry Date: {{date | date : "mediumDate"}}</h2>
+  </div>
+  <div *ngIf="transit" class="text-center">
+    <h2>Your Delhivery address is {{transit | uppercase}} </h2>
+    <h2>In Transit</h2>
+  </div>
+</ng-container>
+

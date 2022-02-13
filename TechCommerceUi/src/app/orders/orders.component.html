@@ -1,0 +1,39 @@
+<h1 class="mt-4 underline">Your Orders</h1>
+<div class="row col-md-12">
+  <ng-container *ngIf="productArray.length">
+    <div class="col-md-4 mt-2 mb-4" *ngFor="let product of productArray">
+      <mat-card class="mat-elevation-z8">
+          <mat-card-header class="spaceing1">
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <mat-card-title>{{product?.name}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image [src]="product?.imageLink" alt="Photo product" width="300px" height="300px">
+          <mat-card-content>
+              <p class="font">
+               Price : {{product?.price|  currency : 'INR'}}
+              </p>
+            </mat-card-content>
+          <mat-card-actions class="spaceing">
+            <div>
+              <h3 class="font">Type: {{product?.quantity}}</h3>
+            </div>
+              <button mat-raised-button color="primary" (click)="download(product?.quantity,product)">
+                <span class="font">See Info </span>&nbsp;<mat-icon matTooltip='Add to shopping cart'>shop</mat-icon>
+          </button>
+          </mat-card-actions>
+      </mat-card>
+  </div>
+  </ng-container>
+  <ng-container *ngIf="!productArray.length">
+    <div class="col-md-6 text-center mt-4 centerMe">
+    <h1 class="mt-4">
+      Your shopping bag is empty!. You haven't ordered anything. Go and shop something.
+    </h1>
+    <button routerLink="/cart" mat-raised-button color="primary">
+      All products
+    </button>
+  </div>
+  </ng-container>
+   
+</div>
+

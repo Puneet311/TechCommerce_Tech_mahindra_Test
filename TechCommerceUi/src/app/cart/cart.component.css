@@ -1,0 +1,30 @@
+.underline{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600;
+}
+.spaceing{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.spaceing1{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.font{
+    font-size: large;
+    font-family: cursive;
+    font-weight: 600;
+}
+.font1{
+    font-size: xx-large;
+    font-weight: 600;
+    cursor: pointer;
+}
+.centerMe{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}

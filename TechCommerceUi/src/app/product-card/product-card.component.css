@@ -1,0 +1,15 @@
+.spaceing{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+  }
+  
+  /* .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  } */
+  .font{
+    font-size: large;
+    font-family: cursive;
+    font-weight: 600;
+}

@@ -1,0 +1,10 @@
+<h1 class="mt-4 underline">All Products</h1>
+<div class="row col-md-12">
+    <ng-container *ngIf="productArray.length">
+        <div class="col-md-4 mt-2 mb-4" *ngFor="let product of productArray">
+            <app-product-card [product]="product"></app-product-card>
+        </div>
+    </ng-container>
+    <h1 class="text-center mt-4" *ngIf="!productArray.length">No product found.</h1>
+</div>
+
